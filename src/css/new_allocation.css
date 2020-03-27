@@ -1,0 +1,31 @@
+/*   allocation_new.html   */
+.new_allocation_ul li{
+    overflow: hidden;
+    margin-top: .4rem;
+}
+.new_allocation_ul li h3{
+    float: left;
+    width: 3.6rem;
+    font-size: .4rem;
+    line-height: 1.2rem;
+    text-align: right;
+    margin-right: .4rem;
+}
+.new_allocation_ul li input,
+.new_allocation_ul li select,
+.new_allocation_ul li textarea{
+    float: left;
+    width: 8rem;
+    font-size: .45rem;
+    line-height: 1.2rem;
+    height: 1.2rem;
+    color: #333;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    padding: 0 .3rem;
+    box-sizing: border-box;
+}
+.new_allocation_ul li textarea{
+    height: 3rem;
+}
+

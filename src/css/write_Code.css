@@ -1,0 +1,24 @@
+.write_Code_con{
+	padding: 1.1rem .8rem;
+	text-align: center;
+}
+.write_Code_con img{
+	height: 3rem;
+}
+.write_Code_con h3{
+	font-size: .5rem;
+	line-height: 2rem;
+	color: #999;
+}
+.write_Code_con input{
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 .4rem;
+	font-size: .5rem;
+	line-height: 1.5rem;
+	color: #999;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	background-color: #f5f9fc;
+}

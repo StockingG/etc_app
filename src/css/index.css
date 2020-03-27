@@ -1,0 +1,42 @@
+/*   index   */
+
+
+.index_body{
+    background-color: #fff;
+}
+.index_header{
+    background-image: linear-gradient(to right,#47AE79,#22b14c);
+    border-bottom: 0;
+}
+.processed{
+    background-image: linear-gradient(to right,#47AE79,#22b14c);
+    font-size: .9rem;
+    line-height: 3.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: #fff;
+}
+.processed span{
+    display: inline-block;
+    font-size: 1.8rem;
+    width: 4rem;
+}
+nav{
+    padding: .5rem .4rem;
+}
+nav a{
+    float: left;
+    width: 33.33%;
+    padding-top: .5rem;
+    text-align: center;
+}
+nav a img{
+    display: block;
+    margin: 0 auto;
+    height: 1rem;
+}
+nav a p{
+    font-size: .45rem;
+    line-height: 1.4rem;
+    color: #333;
+}

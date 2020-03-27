@@ -1,0 +1,27 @@
+.Warehouse_receipt_body{
+    padding-top: 4.2rem;
+}
+.fix_top_tit2{
+	overflow-x: auto;
+	padding-right: 1.6rem;
+}
+.fix_top_tit_con{
+	width: 1000%;
+}
+.fix_top_tit_con p{
+	float: left;
+	font-size: .5rem;
+	line-height: 1.3rem;
+	box-sizing: border-box;
+	padding: 0 .5rem;
+	color: #333;
+}
+.fix_top_tit_con p.on{
+	color: #829be7;
+	border-bottom: 1px solid #829be7;
+}
+.Assets_list_top h4{
+    font-size: .55rem;
+    line-height: 1rem;
+    color: #858891;
+}

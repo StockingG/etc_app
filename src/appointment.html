@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script>
+        document.write('<link rel="stylesheet" href="css/all.css?t='+(new Date()).getTime()+'">');
+        document.write('<link rel="stylesheet" href="css/weui.css?t='+(new Date()).getTime()+'">');
+    </script>
+    <script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
+    <script>
+        document.write('<script type="text/javascript" src="js/common/util.js?t='+(new Date()).getTime()+'"><\/script>');
+        document.write('<script type="text/javascript" src="js/common/base.js?t='+(new Date()).getTime()+'"><\/script>');
+        document.write('<script type="text/javascript" src="js/common/auth.js?t='+(new Date()).getTime()+'"><\/script>');
+        document.write('<script type="text/javascript" src="js/appointment.js?t='+(new Date()).getTime()+'"><\/script>');
+    </script>
+    <script type="text/javascript" src="js/lib/weui.min.js"></script>
+    <title>访客预约</title>
+</head>
+<body  class="bg_fff">
+    <header class="Assets_choose_header">
+        <a href="#" class="more"  onclick="window.location.href ='index.html';"><img src="images/icon_left.png" alt=""></a>
+        <p>预约登记</p>
+    </header>
+    <div class="weui-form" style="padding-top: 0px;">
+        <div class="weui-form__control-area" style="margin: 0px;">
+            <div class="weui-cells__group weui-cells__group_form" style="margin-top: 0px">
+                <div class="weui-cells">
+                    <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label class="weui-label">类型<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd" id="fTypeLabel">请选择类型</div>
+                        <input type="hidden" id="fType" value="">
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">反映人<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd">
+                            <input id="fname" class="weui-input" placeholder="填写反映人姓名"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">联系方式<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd">
+                            <input id="ftelephoneno" class="weui-input" placeholder="填写联系方式"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label class="weui-label">车牌类型<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd" id="fcarnotypeLabel">请选择车牌类型</div>
+                        <input type="hidden" id="fcarnotype" value="">
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">车牌<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd">
+                            <input id="fcarno" class="weui-input" placeholder="填写车牌"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">身份证号<span style="color: red">*</span></label></div>
+                        <div class="weui-cell__bd">
+                            <input id="fidcard" class="weui-input" placeholder="填写身份证号"/>
+                        </div>
+                    </div>
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">地址</label></div>
+                        <div class="weui-cell__bd">
+                            <input id="faddress" class="weui-input" placeholder="填写地址"/>
+                        </div>
+                    </div>
+                    <!--<div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label class="weui-label">预约日期</label></div>
+                        <div class="weui-cell__bd" id="fpdate">选择预约日期</div>
+                    </div>
+                    <div class="weui-cell weui-cell_access weui-cell_select weui-cell_select-after">
+                        <div class="weui-cell__hd"><label class="weui-label">预约时段</label></div>
+                        <div class="weui-cell__bd" id="fptimeLabel">请选择</div>
+                        <input type="hidden" id="fptime" value="">
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="weui-form__tips-area">
+        <!--<p class="weui-form__tips">
+            表单页提示，居中对齐
+        </p>-->
+    </div>
+    <div class="weui-form__opr-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips" onclick="addItem();">下一步</a>
+    </div>
+</body>
+</html>
