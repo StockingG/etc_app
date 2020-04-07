@@ -114,6 +114,9 @@ $(function() {
             title: '选择类型'
         });
     });
+	//文件上传
+
+	
 });
 
 function addItem(){
@@ -163,6 +166,13 @@ function addItem(){
         alertMsg("请选择时间段");
         return ;
     }
+	
+	var imgurls=[];
+	 $("#uploaderFiles li").each(function(){
+		 imgurls.push($(this).attr('db-id'))
+	 });
+	
+	
     $.ajax({
         url: APPHOST + "access/question/addItem",
         type: 'POST',
@@ -174,7 +184,9 @@ function addItem(){
             "fcarno":$("#fcarno").val(),
             "fidcard":$("#fidcard").val(),
             "faddress":$("#faddress").val(),
-            "fcontent":$("#fcontent").val()},
+            "fcontent":$("#fcontent").val(),
+			"imgurls":imgurls.join()
+			},
         dataType: 'json',
         timeout: 15000, //超时时间：15秒
         success: function (data) {
