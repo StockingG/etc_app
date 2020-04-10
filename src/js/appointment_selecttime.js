@@ -209,11 +209,15 @@ function addItem(){
         return ;
     }
     appointmentData.fptime = value;
+    var token = getCookie("app_token");
     $.ajax({
         url: APPHOST + "access/appointment/addItem",
         type: 'POST',
         async: false,
         data:appointmentData,
+        headers: {
+            Authorization: token,
+        },
         dataType: 'json',
         timeout: 15000, //超时时间：15秒
         success: function (data) {

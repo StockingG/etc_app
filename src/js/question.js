@@ -172,11 +172,14 @@ function addItem(){
 		 imgurls.push($(this).attr('db-id'))
 	 });
 	
-	
+    var token = getCookie("app_token");
     $.ajax({
         url: APPHOST + "access/question/addItem",
         type: 'POST',
         async: false,
+        headers: {
+            Authorization: token,
+        },
         data:{"fType":$("#fType").val(),
             "fname":$("#fname").val(),
             "ftelephoneno":$("#ftelephoneno").val(),

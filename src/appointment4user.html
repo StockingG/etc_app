@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script type="text/javascript" src="js/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/lib/weui.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <script>
+        document.write('<link rel="stylesheet" href="css/all.css?t='+(new Date()).getTime()+'">');
+        document.write('<link rel="stylesheet" href="css/weui.css?t='+(new Date()).getTime()+'">');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        document.write('<script type="text/javascript" src="js/common/util.js?t='+(new Date()).getTime()+'"><\/script>');
+        document.write('<script type="text/javascript" src="js/common/base.js?t='+(new Date()).getTime()+'"><\/script>');
+        // document.write('<script type="text/javascript" src="js/common/auth.js?t='+(new Date()).getTime()+'"><\/script>');
+    </script>
+    <title>我的预约</title>
+</head>
+<body  class="bg_fff">
+    <div  id="app">
+    <div class="weui-form-preview" v-for="item in items" >
+        <div class="weui-form-preview__hd">
+            <label class="weui-form-preview__label">类型</label>
+            <em class="weui-form-preview__value">{{ item.name }}</em>
+        </div>
+        <div class="weui-form-preview__bd">
+            <p>
+                <label class="weui-form-preview__label">车牌号</label>
+                <span class="weui-form-preview__value">{{ item.name }}</span>
+            </p>
+            <p>
+                <label class="weui-form-preview__label">预约日期</label>
+                <span class="weui-form-preview__value">{{ item.name }}</span>
+            </p>
+            <p>
+                <label class="weui-form-preview__label">预约时间</label>
+                <span class="weui-form-preview__value">{{ item.name }}</span>
+            </p>
+            <p>
+                <label class="weui-form-preview__label">状态</label>
+                <span class="weui-form-preview__value">{{ item.name }}</span>
+            </p>
+        </div>
+        <div class="weui-form-preview__ft">
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">详情</a>
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">取消预约</a>
+        </div>
+    </div>
+
+    <div class="weui-loadmore">  
+        <i class="weui-loading"></i>  
+        <span class="weui-loadmore__tips">正在加载</span>  
+    </div> 
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script>
+    document.write('<script type="text/javascript" src="js/appointment4user.js?t='+(new Date()).getTime()+'"><\/script>');
+</script>
+</body>
+</html>

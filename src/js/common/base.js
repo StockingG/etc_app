@@ -1,7 +1,8 @@
 //const APPHOST = 'http://47.98.45.159:8082/famsApi/'; // 接口地址
 //const APPHOST = 'http://114.67.83.203:8881/famsApi/'; // 接口地址
-const APPHOST = "http://www.panshi.ltd/etcApi/"; // 接口地址
 //const APPHOST = 'http://61.175.124.98:8082/famsApi/'; // 艺术学校接口地址
+// const APPHOST = "http://111.231.200.131/etcApi/"; // 接口地址
+const APPHOST = "localhost:8080/etcApi/"; // 接口地址
 window.onload = function () {
   document.documentElement.style.fontSize =
     document.documentElement.clientWidth / 12.8 + "px";
