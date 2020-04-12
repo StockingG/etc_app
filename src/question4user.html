@@ -29,13 +29,13 @@
           '"><\/script>'
       );
     </script>
-    <title>我的预约</title>
+    <title>我的问题</title>
   </head>
 
   <body ontouchstart>
     <div class="page-hd">
       <h1 class="page-hd-title">
-        预约记录查询
+        反馈记录查看
       </h1>
     </div>
 
@@ -43,21 +43,11 @@
       <div class="weui-panel__bd" id="rank-list"></div>
       <script id="tpl" type="text/html">
         <% for(var i in data) {   %>
-        <div class="weui-form-preview">
-            <div class="weui-form-preview__bd">
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">预约时间</label>
-                    <span class="weui-form-preview__value"><%=data[i].fsubmitdatetime%></span>
-                </div>
-                <div class="weui-form-preview__item">
-                    <label class="weui-form-preview__label">审核结果</label>
-                    <span class="weui-form-preview__value"><%=data[i].fstatusText%></span>
-                </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">提交时间: <%=data[i].fsubmitdatetime%></h4>
+                <p class="weui-media-box__desc">反馈的内容: <%=data[i].fcontent%></p>
+                <p class="weui-media-box__desc">得到的回复: <%=data[i].fprocess%></p>
             </div>
-            <div class="weui-form-preview__ft">
-                <button onclick="cancel(<%=data[i].fID%>);" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">取消预约</button>
-            </div>
-        </div>
         <% } %>
       </script>
 
@@ -78,14 +68,14 @@
       var pagesize = 4; //每页数据条数
       var token = getCookie("app_token");
       function ajaxpage(page) {
-        var appointmentData = { page: page, pagesize: pagesize };
+        var questionData = { page: page, pagesize: pagesize };
         $.ajax({
           type: "post",
-          url: APPHOST + "access/user/appointment/list",
+          url: APPHOST + "access/user/question/list",
           headers: {
             Authorization: token,
           },
-          data: JSON.stringify(appointmentData),
+          data: JSON.stringify(questionData),
           processData: false,
           contentType: "application/json",
           dataType: "json",
@@ -116,38 +106,12 @@
         });
       }
 
-      function cancel(fid) {
-        $.ajax({
-          type: "post",
-          url: APPHOST + "access/user/appointment/cancel",
-          headers: {
-            Authorization: token,
-          },
-          data: { appointmentId: Number(fid) },
-          contentType: "application/x-www-form-urlencoded",
-          dataType: "json",
-          timeout: 10000,
-          success: function (rs) {
-            if (rs.code == 200) {
-              window.location.href = "appointment4user.html";
-            } else {
-              alertMsg(rs.message);
-            }
-          },
-          error: function (xhr, errorType, error) {
-            alertMsg(
-              "失败：" + errorType + "," + error + "," + JSON.stringify(xhr)
-            );
-          },
-        });
-      }
-
       function getMaxPage() {
         var token = getCookie("app_token");
         var maxpage = 0;
         $.ajax({
           type: "get",
-          url: APPHOST + "access/user/appointment/total",
+          url: APPHOST + "access/user/question/total",
           headers: {
             Authorization: token,
           },
@@ -173,7 +137,6 @@
       $(function () {
         var page = 1;
         var maxpage = getMaxPage();
-        console.info(maxpage);
         $("#getmore").on("click", function () {
           if (page <= maxpage) {
             ajaxpage(page);

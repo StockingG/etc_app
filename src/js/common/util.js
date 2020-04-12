@@ -12,13 +12,21 @@ Date.prototype.Format = function (fmt) {
     "m+": this.getMinutes(), //分
     "s+": this.getSeconds(), //秒
     "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-    "S": this.getMilliseconds() //毫秒
+    S: this.getMilliseconds(), //毫秒
   };
-  if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+  if (/(y+)/.test(fmt))
+    fmt = fmt.replace(
+      RegExp.$1,
+      (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+    );
   for (var k in o)
-    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    if (new RegExp("(" + k + ")").test(fmt))
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)
+      );
   return fmt;
-}
+};
 
 // 将String转化为Date
 var stringToDate = function (dateStr, separator) {
@@ -37,7 +45,7 @@ var stringToDate = function (dateStr, separator) {
   var day = parseInt(dateArr[2]);
   var date = new Date(year, month - 1, day);
   return date;
-}
+};
 
 /**
  * 获取上一个月
@@ -45,7 +53,7 @@ var stringToDate = function (dateStr, separator) {
  * @date 格式为yyyy-MM-dd的日期，如：2018-01-01
  */
 function getLastMonth(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var month = arr[1]; //获取当前日期的月份
   var year2 = year;
@@ -55,9 +63,9 @@ function getLastMonth(date) {
     month2 = 12;
   }
   if (month2 < 10) {
-    month2 = '0' + month2;
+    month2 = "0" + month2;
   }
-  var t2 = year2 + '-' + month2;
+  var t2 = year2 + "-" + month2;
   return t2;
 }
 
@@ -67,7 +75,7 @@ function getLastMonth(date) {
  * @date 格式为yyyy-MM-dd的日期，如：2018-01-01
  */
 function getNextMonth(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var month = arr[1]; //获取当前日期的月份
   var year2 = year;
@@ -77,12 +85,11 @@ function getNextMonth(date) {
     month2 = 1;
   }
   if (month2 < 10) {
-    month2 = '0' + month2;
+    month2 = "0" + month2;
   }
-  var t2 = year2 + '-' + month2;
+  var t2 = year2 + "-" + month2;
   return t2;
 }
-
 
 /**
  * 获取上一个季度
@@ -90,7 +97,7 @@ function getNextMonth(date) {
  * @date 格式为yyyy-q的日期，如：2018-1
  */
 function getLastQuarter(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var quar = arr[1]; //获取当前日期的季度
   var year2 = year;
@@ -99,7 +106,7 @@ function getLastQuarter(date) {
     year2 = parseInt(year2) - 1;
     quar2 = 4;
   }
-  var t2 = year2 + '-' + quar2;
+  var t2 = year2 + "-" + quar2;
   return t2;
 }
 
@@ -109,7 +116,7 @@ function getLastQuarter(date) {
  * @date 格式为yyyy-q的日期，如：2018-1
  */
 function getNextQuarter(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var quar = arr[1]; //获取当前日期的月份
   var year2 = year;
@@ -118,7 +125,7 @@ function getNextQuarter(date) {
     year2 = parseInt(year2) + 1;
     quar2 = 1;
   }
-  var t2 = year2 + '-' + quar2;
+  var t2 = year2 + "-" + quar2;
   return t2;
 }
 
@@ -128,7 +135,7 @@ function getNextQuarter(date) {
  * @date 格式为yyyy-MM-dd的日期，如：2018-01-01
  */
 function getLastYear(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var year2 = parseInt(year) - 1;
   var t2 = year2;
@@ -141,7 +148,7 @@ function getLastYear(date) {
  * @date 格式为yyyy-MM-dd的日期，如：2018-01-01
  */
 function getNextYear(date) {
-  var arr = date.split('-');
+  var arr = date.split("-");
   var year = arr[0]; //获取当前日期的年份
   var year2 = parseInt(year) + 1;
   var t2 = year2;
@@ -156,16 +163,16 @@ function setCookie(name, value) {
   var Days = 30;
   var exp = new Date();
   exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
-  document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+  document.cookie =
+    name + "=" + escape(value) + ";expires=" + exp.toGMTString();
 }
 
 // 读取cookies
 function getCookie(name) {
-  var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-  if (arr = document.cookie.match(reg))
-    return unescape(arr[2]);
-  else
-    return null;
+  var arr,
+    reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+  if ((arr = document.cookie.match(reg))) return unescape(arr[2]);
+  else return null;
 }
 
 // 删除cookies
@@ -196,7 +203,7 @@ function GetRequest() {
 function GetParamsFromUrl(url) {
   var theRequest = new Object();
   if (url.indexOf("?") != -1) {
-    var str = url.substr(url.indexOf("?")+1);
+    var str = url.substr(url.indexOf("?") + 1);
     strs = str.split("&");
     for (var i = 0; i < strs.length; i++) {
       theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
@@ -205,6 +212,48 @@ function GetParamsFromUrl(url) {
   return theRequest;
 }
 
-function alertMsg(msg){
-    alert(msg);
+function alertMsg(msg) {
+  alert(msg);
+}
+
+/**
+ *
+ * @param 获取id
+ * @param json数据
+ * @returns 模板解析函数
+ */
+function tpl(a, d) {
+  var c = function (l) {
+    var j,
+      h = [],
+      g = [];
+    for (j in l) {
+      h.push(j);
+      g.push(l[j]);
+    }
+    return new Function(h, c.$).apply(l, g);
+  };
+  if (!c.$) {
+    var f = a.split("<%");
+    c.$ = "var $=''";
+    for (var b = 0; b < f.length; b++) {
+      var e = f[b].split("%>");
+      if (b != 0) {
+        c.$ +=
+          "=" == e[0].charAt(0)
+            ? "+(" + e[0].substr(1) + ")"
+            : ";" + e[0].replace(/\r\n/g, "") + "$=$";
+      }
+      c.$ +=
+        "+'" +
+        e[e.length - 1]
+          .replace(/\'/g, "\\'")
+          .replace(/\r\n/g, "\\n")
+          .replace(/\n/g, "\\n")
+          .replace(/\r/g, "\\n") +
+        "'";
+    }
+    c.$ += ";return $;";
+  }
+  return d ? c(d) : c;
 }

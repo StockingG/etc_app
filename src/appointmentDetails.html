@@ -55,7 +55,8 @@
                 </div>
             </div>
             <div class="weui-form-preview__ft">
-                <button onclick="cancel(<%=data[i].fID%>);" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">取消预约</button>
+                <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">详情介绍</a>
+                <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">取消预约</button>
             </div>
         </div>
         <% } %>
@@ -97,9 +98,7 @@
             $("#loading").hide();
             console.info(rs.data);
             if (rs.data.length == 0) {
-              if (page == 0) {
-                $("#rank-list").html("暂无数据");
-              }
+              $("#rank-list").html("暂无数据");
               $("#getmore").html("没有更多数据了");
               return false;
             } else {
@@ -108,36 +107,8 @@
               );
             }
           },
-          error: function (xhr, errorType, error) {
-            alertMsg(
-              "失败：" + errorType + "," + error + "," + JSON.stringify(xhr)
-            );
-          },
-        });
-      }
-
-      function cancel(fid) {
-        $.ajax({
-          type: "post",
-          url: APPHOST + "access/user/appointment/cancel",
-          headers: {
-            Authorization: token,
-          },
-          data: { appointmentId: Number(fid) },
-          contentType: "application/x-www-form-urlencoded",
-          dataType: "json",
-          timeout: 10000,
-          success: function (rs) {
-            if (rs.code == 200) {
-              window.location.href = "appointment4user.html";
-            } else {
-              alertMsg(rs.message);
-            }
-          },
-          error: function (xhr, errorType, error) {
-            alertMsg(
-              "失败：" + errorType + "," + error + "," + JSON.stringify(xhr)
-            );
+          error: function (xhr) {
+            alert("ajax出错");
           },
         });
       }
@@ -151,13 +122,10 @@
           headers: {
             Authorization: token,
           },
-          async: false,
           dataType: "json",
           timeout: 10000,
-          error: function (xhr, errorType, error) {
-            alertMsg(
-              "失败：" + errorType + "," + error + "," + JSON.stringify(xhr)
-            );
+          error: function (xhr) {
+            alert("ajax出错");
           },
           success: function (rs) {
             if (rs.code == 200) {
@@ -166,14 +134,12 @@
             }
           },
         });
-        console.info(maxpage);
         return maxpage;
       }
 
       $(function () {
         var page = 1;
         var maxpage = getMaxPage();
-        console.info(maxpage);
         $("#getmore").on("click", function () {
           if (page <= maxpage) {
             ajaxpage(page);
